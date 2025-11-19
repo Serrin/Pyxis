@@ -1,0 +1,34 @@
+// @ts-nocheck
+"use strict";
+/** Pyxis.js * @version 1.0.0 * @see https://github.com/Serrin/ * @license MIT */
+const VERSION="Pyxis.js 1.0.0";
+const not=(x)=>!x;
+const NOT=not;
+const and=(x,y)=>Boolean(x&&y);
+const AND=and;
+const or=(x,y)=>Boolean(x||y);
+const OR=or;
+const xor=(x,y)=>!x!==!y;
+const XOR=xor;
+const nand=(x,y)=>!(x&&y);
+const NAND=nand;
+const nor=(x,y)=>!(x||y);
+const NOR=nor;
+const xnor=(x,y)=>!x===!y;
+const XNOR=xnor;
+const equals=(x,y)=>Boolean(x)===Boolean(y);
+const EQUALS=equals;
+const implies=(x,y)=>!x||Boolean(y);
+const IMPLIES=implies;
+const nandImplies=(x,y)=>Boolean(x)&&!y;
+const NAND_IMPLIES=nandImplies;
+const norImplies=(x,y)=>Boolean(x)||!y;
+const NOR_IMPLIES=norImplies;
+const converseImplies=(x,y)=>!y||Boolean(x);
+const CONVERSE_IMPLIES=converseImplies;
+const converseNandImplies=(x,y)=>Boolean(y)&&!x;
+const CONVERSE_NAND_IMPLIES=converseNandImplies;
+const converseNorImplies=(x,y)=>Boolean(y)||!x;
+const CONVERSE_NOR_IMPLIES=converseNorImplies;
+export {VERSION,not,NOT,and,AND,or,OR,xor,XOR,nand,NAND,nor,NOR,xnor,XNOR,equals,EQUALS,implies,IMPLIES,nandImplies,NAND_IMPLIES,norImplies,NOR_IMPLIES,converseImplies,CONVERSE_IMPLIES,converseNandImplies,CONVERSE_NAND_IMPLIES,converseNorImplies,CONVERSE_NOR_IMPLIES};
+export default {VERSION,not,NOT,and,AND,or,OR,xor,XOR,nand,NAND,nor,NOR,xnor,XNOR,equals,EQUALS,implies,IMPLIES,nandImplies,NAND_IMPLIES,norImplies,NOR_IMPLIES,converseImplies,CONVERSE_IMPLIES,converseNandImplies,CONVERSE_NAND_IMPLIES,converseNorImplies,CONVERSE_NOR_IMPLIES};
