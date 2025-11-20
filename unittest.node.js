@@ -7,7 +7,7 @@ import defaultExport from "./pyxis.js";
 globalThis.pyxis = defaultExport;
 
 // import with default with name
-//import { default as Pyxis } from "./pyxis.js";
+//import { default as pyxis } from "./pyxis.js";
 //globalThis.pyxis = pyxis;
 
 // import all into a new celestra object
@@ -15,7 +15,7 @@ globalThis.pyxis = defaultExport;
 //globalThis.pyxis = pyxis;
 
 
-/* assert.js v1.1.1 testcases for ESM environment */
+/* Pyxis.js v1.0.0 testcases for ESM environment */
 
 
 try {

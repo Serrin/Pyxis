@@ -15,7 +15,7 @@ globalThis.pyxis = defaultExport;
 //globalThis.pyxis = pyxis;
 
 
-/* assert.js v1.1.1 testcases for ESM environment */
+/* Pyxis.js v1.0.0 testcases for ESM environment */
 
 
 try {
