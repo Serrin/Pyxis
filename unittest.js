@@ -10,12 +10,12 @@ globalThis.pyxis = defaultExport;
 //import { default as pyxis } from "./pyxis.js";
 //globalThis.pyxis = pyxis;
 
-// import all into a new celestra object
+// import all functions into a new pyxis object
 //import * as pyxis from "./pyxis.js";
 //globalThis.pyxis = pyxis;
 
 
-/* Pyxis.js v1.0.0 testcases for ESM environment */
+/* Pyxis v1.0.1 testcases for ESM environment */
 
 
 try {

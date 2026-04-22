@@ -1,4 +1,4 @@
-declare const VERSION = "Pyxis.js 1.0.0";
+declare const VERSION = "Pyxis 1.0.1";
 declare const not: (x: unknown) => boolean;
 declare const NOT: (x: unknown) => boolean;
 declare const and: (x: unknown, y: unknown) => boolean;

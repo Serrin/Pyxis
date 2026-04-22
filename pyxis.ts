@@ -1,4 +1,3 @@
-
 // @ts-check
 /// <reference lib="esnext" />
 /// <reference lib="esnext.iterator" />
@@ -9,16 +8,16 @@
 "use strict";
 
 /**
- * @name Pyxis.js
+ * @name Pyxis
  * @description A TypeScript module providing basic logical operations as functions.
- * @version 1.0.0
+ * @version 1.0.1
  * @author Ferenc Czigler
- * @see https://github.com/Serrin/
+ * @see https://github.com/Serrin/Pyxis
  * @license MIT https://opensource.org/licenses/MIT
  */
 
 
-const VERSION = "Pyxis.js 1.0.0";
+const VERSION = "Pyxis 1.0.1";
 
 
 /* Core Operators */

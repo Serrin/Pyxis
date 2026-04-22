@@ -1,8 +1,12 @@
 
-# `Pyxis.js`
+# `Pyxis`
 
-Version: __1.0.0__
+Version: __1.0.1__
+
+Date: __2026-04-21T18:24:07.739Z__
+
 Author: __Ferenc Czigler__
+
 License: __MIT__
 
 A TypeScript and JavaScript module implementing fundamental and extended logical operations based on JavaScript truthiness.
@@ -16,20 +20,24 @@ All functions accept `unknown` values and evaluate them using `Boolean(...);`.
 2. How to import
 3. Truthiness Rules
 4. Function API
-  - `not(x);` and `NOT(x);`
-  - `and(x, y);` and `AND(x, y);`
-  - `or(x, y);` and `OR(x, y);`
-  - `xor(x, y);` and `XOR(x, y);`
-  - `nand(x, y);` and `NAND(x, y);`
-  - `nor(x, y);` and `NOR(x, y);`
-  - `xnor(x, y);` and `XNOR(x, y);`
-  - `equals(x, y);` and `EQUALS(x, y);`
-  - `implies(x, y);` and `IMPLIES(x, y);`
-  - `nandImplies(x, y);` and `NAND_IMPLIES(x, y);`
-  - `norImplies(x, y);` and `NOR_IMPLIES(x, y);`
-  - `converseImplies(x, y);` and `CONVERSE_IMPLIES(x, y);`
-  - `converseNandImplies(x, y);` and `CONVERSE_NAND_IMPLIES(x, y);`
-  - `converseNorImplies(x, y);` and `CONVERSE_NOR_IMPLIES(x, y);`
+
+Function                     | Alias
+-----------------------------|--------------------------------------
+`not(x);`                    | `NOT(x);`
+`and(x, y);`                 | `AND(x, y);`
+`or(x, y);`                  | `OR(x, y);`
+`xor(x, y);`                 | `XOR(x, y);`
+`nand(x, y);`                | `NAND(x, y);`
+`nor(x, y);`                 | `NOR(x, y);`
+`xnor(x, y);`                | `XNOR(x, y);`
+`equals(x, y);`              | `EQUALS(x, y);`
+`implies(x, y);`             | `IMPLIES(x, y);`
+`nandImplies(x, y);`         | `NAND_IMPLIES(x, y);`
+`norImplies(x, y);`          | `NOR_IMPLIES(x, y);`
+`converseImplies(x, y);`     | `CONVERSE_IMPLIES(x, y);`
+`converseNandImplies(x, y);` | `CONVERSE_NAND_IMPLIES(x, y);`
+`converseNorImplies(x, y);`  | `CONVERSE_NOR_IMPLIES(x, y);`
+
 5. Truth Tables
 6. Examples
 7. License
@@ -38,7 +46,7 @@ All functions accept `unknown` values and evaluate them using `Boolean(...);`.
 
 ## Overview
 
-This module provides a suite of logical functions that operate on _truthiness_ rather than strict booleans.
+This module provides a suite of logical functions that operate on __truthiness__ rather than strict booleans.
 
 Every input is coerced using: `Boolean(x);` which makes the library compatible with JavaScript idioms.
 
@@ -54,7 +62,7 @@ Each logical function also includes an alias in uppercase for semantic clarity.
 
 ## How to import
 
-````js
+````javascript
 // import the defaultExport object
 import defaultExport from "./pyxis.js";
 globalThis.pyxis = defaultExport;
@@ -63,12 +71,12 @@ globalThis.pyxis = defaultExport;
 import { default as pyxis } from "./pyxis.js";
 globalThis.pyxis = pyxis;
 
-// import all into a new celestra object
+// import all functions into a new pyxis object
 import * as pyxis from "./pyxis.js";
 globalThis.pyxis = pyxis;
 
 // import some functions
-import { or, XOR } from "./pyxis.mjs";
+import { or, XOR } from "./pyxis.js";
 globalThis.or = or;
 globalThis.XOR = XOR;
 ````
@@ -80,14 +88,14 @@ globalThis.XOR = XOR;
 A value is __truthy__ if `Boolean(value) === true`.
 Examples:
 
-| Truthy                           | Falsy           |
-|----------------------------------|-----------------|
-| `"text"`                         | `""`            |
-| `1`, `-1`, any non-zero number   | `0`, `-0`       |
-| `1n`, `-1n`, any non-zero bigint | `0n`            |
-| `{}`, `[]`                       | `null`          |
-| `function () {}`                 | `undefined`     |
-| `Symbol();`                      | `NaN`           |
+Truthy                           | Falsy
+---------------------------------|-----------------
+`"text"`                         | `""`
+`1`, `-1`, any non-zero number   | `0`, `-0`
+`1n`, `-1n`, any non-zero bigint | `0n`
+`{}`, `[]`                       | `null`
+`function () {}`                 | `undefined`
+`Symbol();`                      | `NaN`
 
 ---
 
@@ -101,13 +109,13 @@ Each function is documented below with examples.
 
 Returns the negation of `x` based on truthiness.
 
-````js
+````typescript
 not(x: unknown): boolean
 ````
 
-#### Examples
+#### not examples
 
-````js
+````javascript
 not(true);          // false
 not(0);             // true
 not("hello");       // false
@@ -119,13 +127,13 @@ not("hello");       // false
 
 Logical AND — true if __both__ `x` and `y` are truthy.
 
-````js
+````typescript
 and(x: unknown, y: unknown): boolean
 ````
 
-#### Examples
+#### and examples
 
-````js
+````javascript
 and(true, 1);       // true
 and(true, 0);       // false
 ````
@@ -136,14 +144,13 @@ and(true, 0);       // false
 
 Logical OR — true if __either__ `x` or `y` is truthy.
 
-
-````js
+````typescript
 or(x: unknown, y: unknown): boolean
 ````
 
-#### Examples
+#### or examples
 
-````js
+````javascript
 or(0, "yes");        // true
 or(null, undefined); // false
 ````
@@ -154,13 +161,13 @@ or(null, undefined); // false
 
 Exclusive OR — true if __exactly one__ of `x` and `y` is truthy.
 
-````js
+````typescript
 xor(x: unknown, y: unknown): boolean
 ````
 
-#### Examples
+#### xor examples
 
-````js
+````javascript
 xor(true, false);   // true
 xor(1, "x");        // false
 ````
@@ -171,13 +178,13 @@ xor(1, "x");        // false
 
 Negated AND — false only if __both__ are truthy.
 
-````js
+````typescript
 nand(x: unknown, y: unknown): boolean
 ````
 
-#### Examples
+#### nand examples
 
-````js
+````javascript
 nand(true, true);   // false
 nand(true, 0);      // true
 ````
@@ -188,13 +195,13 @@ nand(true, 0);      // true
 
 Negated OR — true only if __neither__ `x` nor `y` is truthy.
 
-````js
+````typescript
 nor(x: unknown, y: unknown): boolean
 ````
 
-#### Examples
+#### nor examples
 
-````js
+````javascript
 nor(0, null);       // true
 nor(0, "a");        // false
 ````
@@ -205,13 +212,13 @@ nor(0, "a");        // false
 
 Exclusive NOR — true if `x` and `y` have __the same truthiness__.
 
-````js
+````typescript
 xnor(x: unknown, y: unknown): boolean
 ````
 
-#### Examples
+#### xnor examples
 
-````js
+````javascript
 xnor(true, 1);      // true
 xnor(false, "");    // true
 xnor(1, 0);         // false
@@ -225,11 +232,11 @@ Returns true if both values evaluate to the same boolean.
 
 Equivalent to:
 
-````js
+````javascript
 Boolean(x) === Boolean(y)
 ````
 
-````js
+````typescript
 equals(x: unknown, y: unknown): boolean
 ````
 
@@ -240,7 +247,7 @@ equals(x: unknown, y: unknown): boolean
 Logical implication:
 `x -> y` is false only when `x` is truthy __and__ `y` is falsy.
 
-````js
+````typescript
 implies(x: unknown, y: unknown): boolean
 ````
 
@@ -251,11 +258,11 @@ implies(x: unknown, y: unknown): boolean
 True when `x` is truthy __and__ `y` is falsy.
 Equivalent to:
 
-````
+````text
 x ∧ ¬y
 ````
 
-````js
+````typescript
 nandImplies(x: unknown, y: unknown): boolean
 ````
 
@@ -265,7 +272,7 @@ nandImplies(x: unknown, y: unknown): boolean
 
 True when `x` is truthy OR `y` is falsy.
 
-````js
+````typescript
 norImplies(x: unknown, y: unknown): boolean
 ````
 
@@ -277,7 +284,7 @@ Reverse implication: `y -> x`
 
 False only when `y` is truthy and `x` is falsy.
 
-````js
+````typescript
 converseImplies(x: unknown, y: unknown): boolean
 ````
 
@@ -287,7 +294,7 @@ converseImplies(x: unknown, y: unknown): boolean
 
 True when `y` is truthy __and__ `x` is falsy.
 
-````js
+````typescript
 converseNandImplies(x: unknown, y: unknown): boolean
 ````
 
@@ -297,7 +304,7 @@ converseNandImplies(x: unknown, y: unknown): boolean
 
 True when `y` is truthy OR `x` is falsy.
 
-````js
+````typescript
 converseNorImplies(x: unknown, y: unknown): boolean
 ````
 
@@ -310,34 +317,34 @@ even though the functions accept any values.
 
 ### Core Operators
 
-| x | y | AND | OR | XOR | NAND | NOR | XNOR and EQUALS |
-|---|---|-----|----|-----|------|-----|-----------------|
-| F | F | F   | F  | F   | T    | T   | T               |
-| F | T | F   | T  | T   | T    | F   | F               |
-| T | F | F   | T  | T   | T    | F   | F               |
-| T | T | T   | T  | F   | F    | F   | T               |
+x | y | and | or | xor | nand | nor | xnor | equals
+--|---|-----|----|-----|------|-----|------|------------
+F | F | F   | F  | F   | T    | T   | T    | T
+F | T | F   | T  | T   | T    | F   | F    | F
+T | F | F   | T  | T   | T    | F   | F    | F
+T | T | T   | T  | F   | F    | F   | T    | T
 
 ### Implications
 
-| x | y | implies (->) | nandImplies (x ∧ ¬y) | norImplies (x ∨ ¬y) |
-|---|---|--------------|----------------------|---------------------|
-| F | F | T            | F                    | T                   |
-| F | T | T            | F                    | F                   |
-| T | F | F            | T                    | T                   |
-| T | T | T            | F                    | T                   |
+x | y | implies (->) | nandImplies (x ∧ ¬y) | norImplies (x ∨ ¬y)
+--|---|--------------|----------------------|----------------------
+F | F | T            | F                    | T
+F | T | T            | F                    | F
+T | F | F            | T                    | T
+T | T | T            | F                    | T
 
-| x | y | converseImplies | converseNandImplies (y ∧ ¬x) | converseNorImplies (y ∨ ¬x) |
-|---|---|-----------------|------------------------------|-----------------------------|
-| F | F | T               | F                            | T                           |
-| F | T | F               | T                            | T                           |
-| T | F | T               | F                            | F                           |
-| T | T | T               | F                            | T                           |
+x | y | converseImplies | converseNandImplies (y ∧ ¬x) | converseNorImplies (y ∨ ¬x)
+--|---|-----------------|------------------------------|------------------------------
+F | F | T               | F                            | T
+F | T | F               | T                            | T
+T | F | T               | F                            | F
+T | T | T               | F                            | T
 
 ---
 
 ## Examples
 
-````js
+````javascript
 import { xor, implies, nor } from "./pyxis.js";
 
 xor(1, "a"); // false (both truthy)

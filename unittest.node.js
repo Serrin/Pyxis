@@ -10,12 +10,106 @@ globalThis.pyxis = defaultExport;
 //import { default as pyxis } from "./pyxis.js";
 //globalThis.pyxis = pyxis;
 
-// import all into a new celestra object
+// import all functions into a new pyxis object
 //import * as pyxis from "./pyxis.js";
 //globalThis.pyxis = pyxis;
 
 
-/* Pyxis.js v1.0.0 testcases for ESM environment */
+/* Pyxis v1.0.1 testcases for ESM environment */
+
+
+const COLORS = Object.freeze({
+  /*
+  https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
+  https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+  ANSI escape codes:
+  */
+  /* styles */
+  reset:      "\x1b[0m",
+  bright:     "\x1b[1m",
+  dim:        "\x1b[2m",
+  italics:    "\x1b[3m",
+  underscore: "\x1b[4m",
+  blink:      "\x1b[5m",
+  reverse:    "\x1b[7m",
+  hidden:     "\x1b[8m",
+  /* foreground (text) colors */
+  fgBlack:    "\x1b[30m",
+  fgRed:      "\x1b[31m",
+  fgGreen:    "\x1b[32m",
+  fgYellow:   "\x1b[33m",
+  fgBlue:     "\x1b[34m",
+  fgMagenta:  "\x1b[35m",
+  fgCyan:     "\x1b[36m",
+  fgWhite:    "\x1b[37m",
+  fgGray:     "\x1b[90m",
+  /* background colors */
+  bgBlack:    "\x1b[40m",
+  bgRed:      "\x1b[41m",
+  bgGreen:    "\x1b[42m",
+  bgYellow:   "\x1b[43m",
+  bgBlue:     "\x1b[44m",
+  bgMagenta:  "\x1b[45m",
+  bgCyan:     "\x1b[46m",
+  bgWhite:    "\x1b[47m",
+  bgGray:     "\x1b[100m"
+});
+
+/* console helpers */
+/**
+ * @description Log info to console.
+ *
+ * @param {string} str
+ * @param {any[]} args
+ * @returns void
+*/
+const logInfo = (str, ...args) =>
+  console.log(
+    `${COLORS.bgBlue + COLORS.fgWhite}[info]${COLORS.reset} ${str}`,
+    ...args
+  );
+/**
+ * @description Log success to console.
+ *
+ * @param {string} str
+ * @param {any[]} args
+ * @returns void
+*/
+const logSuccess = (str, ...args) =>
+  console.log(
+    `${COLORS.bgGreen + COLORS.fgWhite}[success]${COLORS.reset} ${str}`,
+    ...args
+  );
+/**
+ * @description Log warning to console.
+ *
+ * @param {string} str
+ * @param {any[]} args
+ * @returns void
+*/
+const logWarn = (str, ...args) =>
+  console.warn(
+    `${COLORS.bgYellow + COLORS.fgWhite}[warning]${COLORS.reset} ${str}`,
+    ...args
+  );
+/**
+ * @description Log error to console.
+ *
+ * @param {string} str
+ * @param {any[]} args
+ * @returns void
+*/
+const logError = (str, ...args) =>
+  console.error(
+    `${COLORS.bgRed + COLORS.fgWhite}[error]${COLORS.reset} ${str}`,
+    ...args
+  );
+/**
+ * @description Log empty line to console.
+ *
+ * @returns void
+*/
+const logLine = () => console.log("");
 
 
 try {
@@ -23,8 +117,8 @@ try {
 
 const testCases = [];
 
-
-console.log("Start of the test.");
+logInfo(`Pyxis version: ${pyxis.VERSION}`);
+logInfo("Start of the test.");
 
 
 testCases.push(
@@ -179,15 +273,15 @@ testCases.push(
 );
 
 
-console.log("\nEnd of the test.\n");
+logInfo("End of the test.");
 
 
 testCases
   .filter((item) => !assert.testCheck(item))
   .map((item) => JSON.stringify(item))
-  .forEach((item) => console.log(item));
+  .forEach((item) => logError(item));
 
 
 } catch (error) {
-  console.log(error);
+  logError(error);
 }

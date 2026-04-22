@@ -1,14 +1,14 @@
 // @ts-nocheck
 "use strict";
-/** Pyxis.js * @version 1.0.0 * @see https://github.com/Serrin/ * @license MIT */
-const VERSION="Pyxis.js 1.0.0";
+/** Pyxis * @version 1.0.1 * @see https://github.com/Serrin/Pyxis * @license MIT */
+const VERSION="Pyxis 1.0.1";
 const not=(x)=>!x;
 const NOT=not;
 const and=(x,y)=>Boolean(x&&y);
 const AND=and;
 const or=(x,y)=>Boolean(x||y);
 const OR=or;
-const xor=(x,y)=>!x!==!y;
+const xor=(x,y)=>!x !==!y;
 const XOR=xor;
 const nand=(x,y)=>!(x&&y);
 const NAND=nand;
